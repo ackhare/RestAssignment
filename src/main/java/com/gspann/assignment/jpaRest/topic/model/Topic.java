@@ -1,5 +1,8 @@
 package com.gspann.assignment.jpaRest.topic.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
@@ -30,6 +33,7 @@ public class Topic {
     @ManyToMany(mappedBy = "relatedTopics")
     private Set<Topic> parentTopics = new HashSet<>();
 
+    @JsonProperty
     public Long getId() {
         return id;
     }
@@ -38,6 +42,7 @@ public class Topic {
         this.id = id;
     }
 
+    @JsonProperty
     public String getName() {
         return name;
     }
@@ -49,6 +54,8 @@ public class Topic {
 
     public Topic() {
     }
+
+    @JsonIgnore
     public Set<Topic> getRelatedTopics() {
         return relatedTopics;
 
@@ -97,6 +104,7 @@ public class Topic {
         subTopic.setTopic(this);
     }
 
+    @JsonIgnore
     public Set<Topic> getParentTopics() {
         return parentTopics;
     }

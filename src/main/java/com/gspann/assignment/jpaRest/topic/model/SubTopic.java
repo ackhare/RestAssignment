@@ -1,5 +1,8 @@
 package com.gspann.assignment.jpaRest.topic.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -9,7 +12,7 @@ import java.util.Objects;
 @Entity
 public class SubTopic {
 
-
+    @JsonIgnore
     public Topic getTopic() {
         return topic;
     }
@@ -31,6 +34,7 @@ public class SubTopic {
     public SubTopic() {
     }
 
+    @JsonProperty
     public Long getId() {
         return id;
     }
@@ -43,6 +47,7 @@ public class SubTopic {
         this.id = id;
     }
 
+    @JsonProperty
     public String getName() {
         return name;
     }

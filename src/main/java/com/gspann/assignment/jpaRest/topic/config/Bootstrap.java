@@ -2,7 +2,6 @@ package com.gspann.assignment.jpaRest.topic.config;
 
 import com.gspann.assignment.jpaRest.topic.model.SubTopic;
 import com.gspann.assignment.jpaRest.topic.model.Topic;
-import com.gspann.assignment.jpaRest.topic.repository.SubTopicRepository;
 import com.gspann.assignment.jpaRest.topic.repository.TopicRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,9 +23,6 @@ public class Bootstrap implements InitializingBean {
     private final static int ONE_ELEMENT = 1;
     @Autowired
     TopicRepository topicRepository;
-
-    @Autowired
-    SubTopicRepository subTopicRepository;
 
     @Override
     @Transactional()

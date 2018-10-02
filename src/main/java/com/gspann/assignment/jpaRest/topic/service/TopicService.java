@@ -5,24 +5,23 @@ package com.gspann.assignment.jpaRest.topic.service;
  */
 
 import com.gspann.assignment.jpaRest.topic.model.Topic;
+import com.gspann.assignment.jpaRest.topic.repository.TopicCustomRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.gspann.assignment.jpaRest.topic.repository.*;
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class TopicService {
 
     @Autowired
-    TopicRepositoryImpl topicRepository;
+    TopicCustomRepositoryImpl topicRepositoryImpl;
 
     public List<Topic> findAllTopicsLinkedToAtLeastNTopics(int numberOfRelatedTopicsToCheck) {
-        return topicRepository.findAllTopicsLinkedToAtLeastNTopics(numberOfRelatedTopicsToCheck);
+        return topicRepositoryImpl.findAllTopicsLinkedToAtLeastNTopics(numberOfRelatedTopicsToCheck);
     }
 
     public List<Topic> findAllTopicsLinkedWithAChildAndParent() {
-        return topicRepository.findAllTopicsLinkedWithAChildAndParent();
+        return topicRepositoryImpl.findAllTopicsLinkedWithAChildAndParent();
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
  * Created by chetan on 2/10/18.
  */
 @Repository
-public class TopicRepositoryImpl implements TopicRepositoryCustom {
+public class TopicCustomRepositoryImpl implements TopicRepositoryCustom {
     @Autowired
     TopicRepository topicRepository;
     /*

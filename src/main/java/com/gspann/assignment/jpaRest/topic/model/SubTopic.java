@@ -1,6 +1,7 @@
 package com.gspann.assignment.jpaRest.topic.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * Created by chetan on 2/10/18.
@@ -59,6 +60,14 @@ public class SubTopic {
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hash(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "SubTopic{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

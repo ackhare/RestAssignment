@@ -1,7 +1,9 @@
 package com.gspann.assignment.jpaRest.topic.model;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * Created by chetan on 2/10/18.
@@ -47,7 +49,6 @@ public class Topic {
 
     public Topic() {
     }
-
     public Set<Topic> getRelatedTopics() {
         return relatedTopics;
 
@@ -69,6 +70,26 @@ public class Topic {
 
     public void setSubTopics(Set<SubTopic> subTopics) {
         this.subTopics = subTopics;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Topic)) return false;
+        return id != null && id.equals(((Topic) o).id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "Topic{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 
     public void addSubTopic(SubTopic subTopic) {
